@@ -5,9 +5,9 @@
 # test-paginate project
 
 The test-paginate project prepares completed workable functions under two folders: lib and data as follows:
+provided
 
-### Two functions provided in the _./lib/paginate.js_
-
+### Two functions  in the _./lib/paginate.js_
 - **getItemsOfCurrentPage(_allItems, currentPage, rowsPerPage_)**
   returns an array of items from allItems that calculates on a given current page and rows per page.
 - **getTotalPages(_allItems, rowsPerPage_)**

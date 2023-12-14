@@ -2,42 +2,43 @@ function todoUserInterface() {
   // const todosDiv = document.getElementById('todos')
 
   function showTodoItem(newId, newDescription) {
-    const listTodoDiv = document.getElementById('listTodo')
-    console.log(listTodoDiv.children.length)
-    //create new <div>
-    const newTodoDiv = document.createElement('div')
-    newTodoDiv.className = 'todoItem'
-    newTodoDiv.setAttribute('id', newId)
+    const listTodoDIv = document.getElementById('listTodo')
 
-    //create new <p>
-    const newTodoItem = document.createElement('p')
-    newTodoItem.textContent = newDescription
-    newTodoDiv.appendChild(newTodoItem)
+    const  todoItemDiv =document.createElement('div')
+    todoItemDiv.className= 'todoItem'
+    todoItemDiv.setAttribute=('id',newId)
 
-    //create done button
-    const doneButton = document.createElement('button')
-    doneButton.textContent = 'Not Done'
-    newTodoDiv.appendChild(doneButton)
+    const DesP = document.createElement('p')
+    DesP.textContent ='newDescription'
+    todoItemDiv.appendChild(DesP)
 
-    //create remove button
+     const notDButton = document.createElement('button')
+     notDButton.textContent= 'Not Done '
+     todoItemDiv.appendChild(notDButton)
+
     const removeButton = document.createElement('button')
     removeButton.textContent = 'remove'
-    newTodoDiv.appendChild(removeButton)
+    todoItemDiv.appendChild(removeButton)
 
-    listTodoDiv.appendChild(newTodoDiv)
+    listTodoDIv.appendChild(todoItemDiv)
   }
 
   
-  function showNumberOfDone() {
+  function showNumberOfDone(numberOfDone) {
+    const numberDone =document.getElementById('done')
+    numberDone.textContent=`>Number of Done:${numberOfDone}`
     
   }
-  function showNumberOfNotDone() {
-
+  function showNumberOfNotDone(numberOfNotDone) {
+    const numberNotDone =document.getElemenyId('notDone')
+    numberDone.textContent=`>Number of not   Done:${numberNotDone}`
      }
-  function removeTodoItem() {
+  function removeTodoItem(removeId) {
+    const removeItem  = document.getElementById(removeId)
+    removeItem.parentElement.removeChild(removeItem)
     
   }
   return { showTodoItem, showNumberOfDone, showNumberOfNotDone, removeTodoItem }
 }
-// export { todoUserInterface }
-module.exports = todoUserInterface
+export { todoUserInterface }
+// module.exports = todoUserInterface

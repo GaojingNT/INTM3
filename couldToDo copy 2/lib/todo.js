@@ -5,11 +5,13 @@ class Todo {
     Todo.runningId = loadingId
   }
 
-  constructor(id, description) {
-    this.id = id 
+  constructor(id, description, done = false) {
+    this.id = id ?? Todo.runningId++
     // console.log(this.id)
     this.description = description
-    
+    this.done = done
+    // this.done = done ?? false
+    // console.log(this.done)
   }
 
   getTodo() {
@@ -19,7 +21,9 @@ class Todo {
   setDescription(newDescription) {
     this.description = newDescription
   }
-
+  setDone(value) {
+    this.done = value
+  }
 }
 
 export { Todo }

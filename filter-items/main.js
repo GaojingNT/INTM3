@@ -1,35 +1,49 @@
-// import{product} from './data/products.js'
+//Node.js
+// const { template } = require('@babel/core')
+// const products = require('./data/products.js')
 
-
-const items = require('./data/products.js');
+//Browser
+import { products } from './data/products.js'
 
 function itemList(userItems){
-    const items =userItems
+  const items = userItems
 
-    const initialPage = () =>{
-        const input = document.querySelector('input')
-        input.addEventListener('input',filterItemsHandler)   
-        showItems(items) 
-    }
-    const filterItemsHandler = (event) =>{
-        const inputValue  = event.target.value.toLowerCase()
-        const filter = items.filter((product)=>
+  const initialPage= () => {
+    const input = document.querySelector('input')
+    input.addEventListener('input', filterItemsHandler)
+    showItems(items)
+  }
+
+  const filterItemsHandler = (e) =>{
+    const inputValue = e.target.value.toLowerCase()
+    const filter = items.filter((product) =>
         product.keywords.toLowerCase().includes(inputValue))
-        showItems(filter)
+    showItems(filter)
+    
+  } 
+  const showItems = (items) =>{
+    const itemsUl=document.querySelector('#items')
+    itemsUl.textContent=''
+    items.forEach((product)=>{
+      const newLi =document.createElement('li')
+      newLi.textContent=`ID:${product.id}, NAME: ${product.name},KEYWORDS:${product.keywords}`
+      itemsUl.appendChild(newLi)
+    })
 
-    } 
-    const showItems = (items) => {
-        const productsUl = document.querySelector('#ul')
-        productsUl.textContent= ''
-        items.forEach((product) => {
-            const liElement = document.createElement('li')
-            liElement.textContent = `ID:${product.id},NAME:${product.name}`
-            productsUl.appendChild(liElement)
-        });
-    }
-    return {
-        initialPage,
-        filterItemsHandler,
-        showItems
-      }
+  }
+  return {
+    initialPage,
+    filterItemsHandler,
+    showItems
+  }
 }
+
+
+// Node.js
+// module.exports = itemList
+
+//Browser
+export { itemList }
+
+const { initialPage, filterItemsHandler, showItems } = itemList(products)
+initialPage()

@@ -1,9 +1,9 @@
-//Node.js
-const { template } = require('@babel/core')
-const products = require('./data/products.js')
+// //Node.js
+// const { template } = require('@babel/core')
+// const products = require('./data/products.js')
 
 //Browser
-// import { products } from './data/products.js'
+import { products } from './data/products.js'
 
 function itemList(userItems) {
   const items = userItems
@@ -39,10 +39,10 @@ function itemList(userItems) {
 }
 
 // Node.js
-module.exports = itemList
+// module.exports = itemList
 
 //Browser
-// export { itemList }
-//
-// const { initialPage, filterItemsHandler, showItems } = itemList(products)
-// initialPage()
+export { itemList }
+
+const { initialPage, filterItemsHandler, showItems } = itemList(products)
+initialPage()
